@@ -1,0 +1,26 @@
+---
+- name: hello world
+  hosts: localhost
+
+  tasks:
+    - include_vars: vars.yml
+    - name: display hello world
+      shell: echo "hello world"
+
+
+    - name: display date
+      command: date
+
+#    - name: list files
+#      command: ls-lrt
+#      args:
+#        chdir: /mnt/D/IBT Learning/GIT
+
+    - name: add lines to text file
+      lineinfile:
+        path: test.txt
+#        line: 'server 10.23.45.67'
+        line: 'server {{ server_name }}'
+
+    - name: install package
+      command: echo {{ package_name }}

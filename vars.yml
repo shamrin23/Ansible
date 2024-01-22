@@ -1,0 +1,16 @@
+server_name: '10.23.455.6'
+package_name: 'java'
+user_create:
+  - Shamrin
+  - ibt
+  - nov2023
+  - 2024
+packages:
+  - name: python
+    required: true
+  - name: java
+    required: true
+  - name: ruby
+    required: false
+  - name: nginx
+    required: true
