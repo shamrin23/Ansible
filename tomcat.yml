@@ -35,7 +35,7 @@
 
     - name: Download Tomcat and unarchive
       unarchive:
-        src: https://downloads.apache.org/tomcat/tomcat-9/v9.0.72//bin/apache-tomcat-9.0.72.tar.gz
+        src: https://downloads.apache.org/tomcat/tomcat-9/v9.0.83/bin/apache-tomcat-9.0.83.tar.gz
         dest: '{{ path }}'
         remote_src: yes
 
