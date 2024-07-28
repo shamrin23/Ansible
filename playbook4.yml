@@ -1,0 +1,46 @@
+---
+- name: playbook4
+  hosts: localhost
+
+  vars:
+    users:
+      - shamrin
+      - ibt
+      - nov2023
+      - ansible
+
+  tasks:
+    - include_vars: vars1.yml
+    - name: run echo command
+      command: echo 'hello world'
+      register: contents
+      tags:
+        - webservers
+
+    - name: run the command if the previous command is successful
+      command: echo 'successful'
+      when: contents.stdout.find('hi') != -1
+
+    - name: run the command if the previous command works
+      command: echo 'works good'
+      when: contents.changed == true
+      tags:
+        - webservers
+
+    - name: trying loop
+      command: echo {{ item }}
+      loop:
+        - shamrin
+        - ibt
+        - nov2023
+        - ansible
+
+    - name: loop with vars (global vars)
+      command: echo {{ item }}
+      loop: '{{ users }}'
+
+    - name: loop with condition using variable
+      command: echo {{ item.name }}
+      when: item.required == true
+      loop: '{{ packages }}'
+

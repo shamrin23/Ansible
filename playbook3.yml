@@ -1,0 +1,37 @@
+---
+- name: Hello World
+  hosts: localhost
+
+  vars:
+    server_name: '10.25.455.7'
+    package_name: 'java'
+
+  tasks:
+    - include_vars: vars1.yml
+    - name: display hello world
+      shell: echo "hello world"
+
+    - name: display date
+      command: date
+
+#    - name: list files
+#      command: ls-lrt
+#      args:
+#        chdir: /mnt/d/IBT Learning/GIT
+
+    - name: add Lines to test file
+      lineinfile:
+        path: test1.txt
+        line: 'server 10.23.45.67'
+
+    - name: testing variable
+      lineinfile:
+        path: test1.txt
+        line: '{{ server_name }}'
+
+    - name: calling vars1.yml
+      command: echo {{ package_name }}
+
+
+
+
