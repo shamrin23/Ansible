@@ -44,7 +44,7 @@
         mode: u+rwx,g+rx,o+rx
 
     - name: start tomcat
-      command: nohup /opt/tomcat/apache-tomcat-9.0.91/bin/startup.sh
+      command: sh /opt/tomcat/apache-tomcat-9.0.91/bin/startup.sh
 
     - name: Allow tcp connections
       command: sudo ufw allow 8080/tcp
